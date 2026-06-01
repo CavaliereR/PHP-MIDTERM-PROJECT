@@ -10,7 +10,30 @@
 
 <body class="bg-dark text-light">
 
+<nav class="navbar navbar-dark bg-black">
+    <div class="container">
+
+        <span class="navbar-brand">
+            Photo Contest Portal
+        </span>
+
+        <a href="browse.php"
+           class="btn btn-outline-light">
+            Browse Entries
+        </a>
+
+
+        <a href="index.php"
+           class="btn btn-outline-light">
+            Submit Entry
+        </a>
+
+    </div>
+</nav>
+
 <div class="container vh-100 d-flex justify-content-center align-items-center">
+
+
 
     <div class="card bg-secondary text-light shadow-lg p-4" style="width: 600px;">
 
