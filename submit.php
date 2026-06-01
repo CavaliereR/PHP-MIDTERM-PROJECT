@@ -79,6 +79,27 @@ $imagePath = upload_file($category);
 
 <body class="bg-dark text-light">
 
+<nav class="navbar navbar-dark bg-black">
+    <div class="container">
+
+        <span class="navbar-brand">
+            Photo Contest Portal
+        </span>
+
+        <a href="browse.php"
+           class="btn btn-outline-light">
+            Browse Entries
+        </a>
+
+
+        <a href="index.php"
+           class="btn btn-outline-light">
+            Submit Entry
+        </a>
+
+    </div>
+</nav>
+
 <div class="container mt-5">
 
     <div class="card bg-secondary text-light">
