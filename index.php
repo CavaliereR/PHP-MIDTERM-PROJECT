@@ -78,11 +78,34 @@ if(isset($_SESSION['error']))
 }
 
 body{
-    background:linear-gradient(to right,#1e232b,#232b35);
+    position:relative;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow:hidden;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url('images.jpeg') center center/cover no-repeat;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:-1;
 }
 
 .login-box{
