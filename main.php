@@ -7,10 +7,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<?php
-header("Location: login.php");
-exit();
-?></head>
 
 <body class="bg-dark text-light">
 
