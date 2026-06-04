@@ -6,7 +6,7 @@
     <title>Online Photo Contest</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
+</head>
 
 <body class="bg-dark text-light">
 
@@ -17,23 +17,27 @@
             Photo Contest Portal
         </span>
 
-        <a href="browse.php"
-           class="btn btn-outline-light">
-            Browse Entries
-        </a>
+        <div>
+            <a href="browse.php"
+               class="btn btn-outline-light me-2">
+                Browse Entries
+            </a>
 
+            <a href="index.php"
+               class="btn btn-outline-light me-2">
+                Submit Entry
+            </a>
 
-        <a href="index.php"
-           class="btn btn-outline-light">
-            Submit Entry
-        </a>
+            <a href="logout.php"
+               class="btn btn-danger">
+                Logout
+            </a>
+        </div>
 
     </div>
 </nav>
 
 <div class="container vh-100 d-flex justify-content-center align-items-center">
-
-
 
     <div class="card bg-secondary text-light shadow-lg p-4" style="width: 600px;">
 
@@ -64,11 +68,18 @@
             <div class="mb-3">
                 <label class="form-label">Category</label>
 
-                <select class="form-select" name="category">
-                    <option>Nature</option>
-                    <option>Portrait</option>
-                    <option>Street</option>
+                <select class="form-select" name="category" required>
+                    <option value="Nature">Nature</option>
+                    <option value="Portrait">Portrait</option>
+                    <option value="Street">Street</option>
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea class="form-control"
+                          name="description"
+                          rows="4"></textarea>
             </div>
 
             <div class="mb-3">

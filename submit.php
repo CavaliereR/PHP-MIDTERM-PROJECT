@@ -1,9 +1,7 @@
 <?php
 
-// Function for uploading the selected image
 function upload_file($category)
 {
-    // Check if a file was uploaded
     if (!isset($_FILES['photo']))
     {
         return null;
@@ -11,32 +9,25 @@ function upload_file($category)
 
     $upload = $_FILES['photo'];
 
-    // Check if user actually selected a file
     if ($upload['error'] == UPLOAD_ERR_NO_FILE)
     {
         echo "No file selected.";
         return null;
     }
 
-    // Create category folder path
     $targetDir = __DIR__ . "/uploads/" . $category . "/";
 
-    // Create folder if it does not exist
     if (!is_dir($targetDir))
     {
         mkdir($targetDir, 0777, true);
     }
 
-    // Get uploaded filename
     $filename = basename($upload['name']);
 
-    // Full server path
     $targetFile = $targetDir . $filename;
 
-    // Path used for displaying image in browser
     $fileURL = "uploads/" . $category . "/" . $filename;
 
-    // Move uploaded file into folder
     if (move_uploaded_file($upload['tmp_name'], $targetFile))
     {
         return $fileURL;
@@ -45,7 +36,6 @@ function upload_file($category)
     return null;
 }
 
-// Creates a download link
 function show_download($fileURL)
 {
     return '<a href="' . htmlspecialchars($fileURL) . '" download class="btn btn-success">
@@ -53,13 +43,11 @@ function show_download($fileURL)
             </a>';
 }
 
-// Receive form data
 $participantName = $_POST['participantName'] ?? '';
 $contestTitle = $_POST['contestTitle'] ?? '';
 $category = $_POST['category'] ?? '';
 $description = $_POST['description'] ?? '';
 
-// Upload image
 $imagePath = upload_file($category);
 
 ?>
@@ -86,16 +74,22 @@ $imagePath = upload_file($category);
             Photo Contest Portal
         </span>
 
-        <a href="browse.php"
-           class="btn btn-outline-light">
-            Browse Entries
-        </a>
+        <div>
+            <a href="browse.php"
+               class="btn btn-outline-light me-2">
+                Browse Entries
+            </a>
 
+            <a href="index.php"
+               class="btn btn-outline-light me-2">
+                Submit Entry
+            </a>
 
-        <a href="index.php"
-           class="btn btn-outline-light">
-            Submit Entry
-        </a>
+            <a href="logout.php"
+               class="btn btn-danger">
+                Logout
+            </a>
+        </div>
 
     </div>
 </nav>
@@ -111,8 +105,6 @@ $imagePath = upload_file($category);
             </h2>
 
             <hr>
-
-            <!-- Display submitted information -->
 
             <p>
                 <strong>Participant:</strong>
@@ -136,7 +128,6 @@ $imagePath = upload_file($category);
 
             <?php
 
-            // Display uploaded image if upload succeeded
             if ($imagePath != null)
             {
                 echo "<h4>Uploaded Image</h4>";
